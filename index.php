@@ -18,5 +18,16 @@
 						->getById('HappyHours')
 				); // 270
 	
+	echo '<br>';
+	/**
+	* Другой пример. Создаем DocSaver и отдаем ему адрес файла
+	* Просим сохранить файл в формате pdf. 
+	* Для этого передаем в метод нужную стратегию, которую вызываем 
+	* через контекстный класс SaveDocContext
+	*/
 	
-?>
+	echo (new \App\DocSaver('files/myDoc.doc'))
+			->saveMyDoc(
+				(new \App\Context\SaveDocContext())
+					->get('pdf')
+			); // Документ files/myDoc.doc сохранен в формате PDF
